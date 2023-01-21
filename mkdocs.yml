@@ -1,0 +1,16 @@
+site_name: Docs
+site_url: https://docs-kamu.com/
+theme:
+  pallete:
+    scheme: slate
+  name: material
+  language: id
+  #you can put logo and favicon in folder docs/assets
+  #logo: assets/logo.png
+  #favicon: assets/logo.ico
+nav:
+    - Home: index.md
+    - Collection: collection.md 
+    - About: about.md
+plugins:
+  - search

@@ -1,0 +1,16 @@
+version: '3.3'
+
+services:
+  docs:
+
+    image: ghcr.io/ipang777/mkdocs-docker-production
+    container_name: docs-tr
+    restart: always
+    ports:
+      - "81:80"
+    networks:
+      - docs-net
+
+networks:
+  docs-net:
+    
