@@ -9,7 +9,6 @@ env:
 
 jobs:
 
-  #start update to server actions
   build-image-at-ghcr:
     runs-on: ubuntu-latest
 
