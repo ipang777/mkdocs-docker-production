@@ -39,3 +39,19 @@ jobs:
             push: true
             tags: ${{ steps.meta.outputs.tags }}
             labels: ${{ steps.meta.outpus.labels }}
+
+  clean-ghcr:
+    name: Delete old unused container images
+    needs: build-image-at-ghcr
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete all test containers
+        uses: snok/container-retention-policy@v2.2.1
+        with:
+          image-names: mkdocs-docker-production*
+          cut-off: One month ago UTC
+          timestamp-to-use: updated_at
+          account-type: personal
+          keep-at-least: 2
+          skip-tags: master
+          token: ${{ secrets.GITHUB_TOKEN }}
